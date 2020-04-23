@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get "/page200", to: "pages#show"
 
   get "/calculator", to: "calculator#add"
+
+
+
+  post "/student", to: "student#create"
 end

@@ -3,16 +3,16 @@ class BooksController < ApplicationController
     before_action :setup_data
 
     def index
-        render json: session[:book]
+        render json: session[:books]
     end
     
     #Show a single book
     def show
         #repond back with the book in json
        
-        session[:book].each do |book|
+        session[:books].each do |book|
             
-            if book[:id]== params[:id]
+            if book["id"]== params[:id]
                 render json: book
             end
         end
@@ -21,10 +21,11 @@ class BooksController < ApplicationController
     #Create a new book
     def create
         #respond back with the created book in json
+        id = params[:id]
         title = params[:title]
         author = params[:author]
-        new_book = {title: title, author: author}
-        session[:book].push(new_book)
+        new_book = {id: id, title: title, author: author}
+        session[:books].push(new_book)
         render json: new_book
     end
     
@@ -34,12 +35,12 @@ class BooksController < ApplicationController
         title = params[:title]
         author = params[:author]
         updated_version= {title: title, author: author}
-        session[:book].each do |book|
+        session[:books].each do |book|
             if book[:id] == params[:id]
                 book = updated_version
-                render json:book
-
+                render json: book
             end
+            
         end
     end
     
@@ -51,10 +52,9 @@ class BooksController < ApplicationController
 
     private
     def setup_data
-        session[:book] = [
+        session[:books] = [
             { id: "1", title: "Harry Potter", author: "J.K Rowling" },
             { id: "2", title: "Name of the wind", author: "Patrick Rothfuss" }
-
-        ] unless session[:books]
+         ] unless session[:books]
     end
 end

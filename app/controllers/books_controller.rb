@@ -34,11 +34,12 @@ class BooksController < ApplicationController
         # respond back with the udpated book in json
         title = params[:title]
         author = params[:author]
-        updated_version= {title: title, author: author}
+        
         session[:books].each do |book|
-            if book[:id] == params[:id]
-                book = updated_version
-                render json: book
+            if book["id"] == params[:id]
+                book[:title] = title
+                book[:author] = author
+                render json:book
             end
             
         end

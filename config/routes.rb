@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post "/student", to: "student#create"
 
   get "/student/:id", to: "student#show"
+
+  post "/pokemon/:name/:type", to: "pokemon#create"
 end

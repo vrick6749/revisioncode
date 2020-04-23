@@ -55,6 +55,6 @@ class BooksController < ApplicationController
             { id: "1", title: "Harry Potter", author: "J.K Rowling" },
             { id: "2", title: "Name of the wind", author: "Patrick Rothfuss" }
 
-        ]
+        ] unless session[:books]
     end
 end

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get "/page", to: "pages#index", as: "homepage"
 
-  get "/page/:id", to: "pages#show"
+  get "/page200", to: "pages#show"
 end

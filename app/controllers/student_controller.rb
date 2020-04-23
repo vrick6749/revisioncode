@@ -3,4 +3,8 @@ class StudentController < ApplicationController
     def create
         render(plain: "student created")
     end
+
+    def show
+        render(plain: "The id of this page is #{params[:id]}")
+    end
 end

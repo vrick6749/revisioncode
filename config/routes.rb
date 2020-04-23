@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
 
   post "/student", to: "student#create"
+
+  get "/student/:id", to: "student#show"
 end

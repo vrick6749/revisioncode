@@ -19,4 +19,9 @@ Rails.application.routes.draw do
 
   get "/redirectfrom", to: "redirect#from"
   get "/redirectedto", to: "redirect#to"
+
+  get "/books", to: "books#index"
+  get "/books/:id", to: "books#show"
+  post "/books", to: "books#create"
+  put "/books/:id", to: "books#update"
 end

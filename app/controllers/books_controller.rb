@@ -4,6 +4,7 @@ class BooksController < ApplicationController
 
     def index
         render json: session[:books]
+        puts session[:books]
     end
     
     #Show a single book

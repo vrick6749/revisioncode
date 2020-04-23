@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "/page", to: "pages#index", as: "homepage"
 
   get "/page200", to: "pages#show"
+
+  get "/calculator", to: "calculator#add"
 end

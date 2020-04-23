@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
     def index 
         #has a view page with text under H1
+        @verdict = false
+        @list_of_people = ["ike", "harry", "dave"]
     end
 
     def show

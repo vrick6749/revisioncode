@@ -49,7 +49,15 @@ class BooksController < ApplicationController
     #Remove a book
     def destroy
         # respond back with the deleted book in json
-
+        new_list =[]
+        session[:books].each do |book|
+            if book["id"] == params[:id]
+                next
+            else 
+                new_list.push(book)
+            end
+        end
+        session[:books] = new_list
     end
 
     private

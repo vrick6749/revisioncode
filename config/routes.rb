@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   get "/student/:id", to: "student#show"
 
   post "/pokemon/:name/:type", to: "pokemon#create"
+
+
+
+  get "/redirectfrom", to: "redirect#from"
+  get "/redirectedto", to: "redirect#to"
 end

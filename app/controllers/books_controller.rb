@@ -3,14 +3,14 @@ class BooksController < ApplicationController
     before_action :setup_data
 
     def index
-        render json: @data
+        render json: session[:book]
     end
     
     #Show a single book
     def show
         #repond back with the book in json
        
-        @data.each do |book|
+        session[:book].each do |book|
             
             if book[:id]== params[:id]
                 render json: book
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
         title = params[:title]
         author = params[:author]
         new_book = {title: title, author: author}
-        @data.push(new_book)
+        session[:book].push(new_book)
         render json: new_book
     end
     
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
         title = params[:title]
         author = params[:author]
         updated_version= {title: title, author: author}
-        @data.each do |book|
+        session[:book].each do |book|
             if book[:id] == params[:id]
                 book = updated_version
                 render json:book
@@ -46,11 +46,12 @@ class BooksController < ApplicationController
     #Remove a book
     def destroy
         # respond back with the deleted book in json
+
     end
 
     private
     def setup_data
-        @data = [
+        session[:book] = [
             { id: "1", title: "Harry Potter", author: "J.K Rowling" },
             { id: "2", title: "Name of the wind", author: "Patrick Rothfuss" }
 
